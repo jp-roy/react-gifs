@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import giphy from "giphy-api";
 
 import SearchBar from './search_bar.jsx'
 import GifList from './gif_list.jsx'
@@ -12,12 +13,22 @@ class App extends Component {
       selectedGifId: "RqbkeCZGgipSo",
       ids: ["vXeeHUPxgBtp6", "8EmeieJAGjvUI"]
     };
+
+    this.search("csgo");
   }
 
-
-  // State dans le constr
-  // 1) selectedGifId
-  // 2) Gif ids array
+  search = (query) => {
+    giphy('AQxTgeGrIHzd6KGpF6id1Wi4wJgbnb61').search({
+      q: query,
+      rating: 'g'
+    }, (err, res) => {
+      console.log(res);
+      // update state
+      this.setState({
+        ids: res.data.map((gif) => gif.id)
+      });
+    });
+  }
 
   render() {
     return (
