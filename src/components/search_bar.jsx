@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 
-class GifList extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div className="">
-      </div>
+      <input type="text" className="form-control form-search"/>
     );
   }
 }
 
-export default GifList
+export default SearchBar
