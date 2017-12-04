@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Gif from './gif.jsx'
+
 class GifList extends Component {
   constructor(props) {
     super(props);
@@ -7,8 +9,7 @@ class GifList extends Component {
 
   render() {
     return (
-      <div className="">
-      </div>
+      this.props.ids.map((id, key) => <Gif id={id} key={id}/> )
     );
   }
 }

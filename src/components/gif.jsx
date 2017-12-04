@@ -9,7 +9,7 @@ class Gif extends Component {
   render() {
     return (
       <div className="gif">
-        <img className="selected-gif" src={`https://media2.giphy.com/media/${this.props.id}/200.gif`} alt=""/>
+        <img src={`https://media2.giphy.com/media/${this.props.id}/200.gif`} alt=""/>
       </div>
     );
   }

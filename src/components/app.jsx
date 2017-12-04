@@ -7,7 +7,17 @@ import Gif from './gif.jsx'
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      selectedGifId: "RqbkeCZGgipSo",
+      ids: ["vXeeHUPxgBtp6", "8EmeieJAGjvUI"]
+    };
   }
+
+
+  // State dans le constr
+  // 1) selectedGifId
+  // 2) Gif ids array
 
   render() {
     return (
@@ -15,11 +25,13 @@ class App extends Component {
         <div className="left-scene">
           <SearchBar />
           <div className="selected-gif">
-            <Gif id="RqbkeCZGgipSo"/>
+            <Gif id={this.state.selectedGifId}/>
           </div>
         </div>
         <div className="right-scene">
-          <GifList />
+          <div className="gif-list">
+            <GifList ids={this.state.ids}/>
+          </div>
         </div>
       </div>
     );
