@@ -20,10 +20,9 @@ class App extends Component {
   search = (query) => {
     giphy('AQxTgeGrIHzd6KGpF6id1Wi4wJgbnb61').search({
       q: query,
-      rating: 'g'
+      rating: 'g',
+      limit: 10
     }, (err, res) => {
-      console.log(res);
-      // update state
       this.setState({
         selectedGifId: res.data[0].id,
         ids: res.data.map((gif) => gif.id)
