@@ -10,8 +10,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      selectedGifId: "RqbkeCZGgipSo",
-      ids: ["vXeeHUPxgBtp6", "8EmeieJAGjvUI"]
+      selectedGifId: "",
+      ids: []
     };
 
     this.search("csgo");
@@ -25,8 +25,15 @@ class App extends Component {
       console.log(res);
       // update state
       this.setState({
+        selectedGifId: res.data[0].id,
         ids: res.data.map((gif) => gif.id)
       });
+    });
+  }
+
+  show = (id) => {
+    this.setState({
+      selectedGifId: id
     });
   }
 
@@ -34,14 +41,14 @@ class App extends Component {
     return (
       <div>
         <div className="left-scene">
-          <SearchBar />
+          <SearchBar search={this.search}/>
           <div className="selected-gif">
             <Gif id={this.state.selectedGifId}/>
           </div>
         </div>
         <div className="right-scene">
           <div className="gif-list">
-            <GifList ids={this.state.ids}/>
+            <GifList ids={this.state.ids} show={this.show}/>
           </div>
         </div>
       </div>
